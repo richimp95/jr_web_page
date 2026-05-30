@@ -285,7 +285,7 @@ a   { color: inherit; text-decoration: none; }
 .hero__product-img {
   max-height: 480px;
   width: auto;
-  mix-blend-mode: screen;
+  filter: drop-shadow(0 32px 56px rgba(0,0,0,.55));
   animation: float 4.5s ease-in-out infinite;
 }
 
@@ -374,8 +374,11 @@ a   { color: inherit; text-decoration: none; }
 .products__card-img img {
   max-height: 200px;
   width: auto;
-  mix-blend-mode: multiply;
-  transition: transform .4s ease;
+  filter: drop-shadow(0 12px 28px rgba(0,0,0,.22));
+  transition: transform .4s ease, filter .4s ease;
+}
+.products__card:hover .products__card-img img {
+  filter: drop-shadow(0 18px 36px rgba(0,0,0,.32));
 }
 .products__card:hover .products__card-img img { transform: scale(1.04); }
 .products__card-body { padding: 1.5rem 1.75rem 2rem; }
@@ -467,12 +470,12 @@ a   { color: inherit; text-decoration: none; }
 }
 .features__visual img:hover { transform: scale(1.03); }
 
-/* Background removal via blend modes */
+/* Drop shadows — images already have transparent bg */
 .features__block--light .features__visual img {
-  mix-blend-mode: multiply;
+  filter: drop-shadow(0 20px 48px rgba(0,0,0,.18));
 }
 .features__block--dark .features__visual img {
-  mix-blend-mode: screen;
+  filter: drop-shadow(0 20px 48px rgba(0,0,0,.5));
 }
 
 /* ─── WHY PARTNER ──────────────────────────────────────────── */
