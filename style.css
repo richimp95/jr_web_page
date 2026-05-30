@@ -98,6 +98,27 @@ a   { color: inherit; text-decoration: none; }
 .btn--outline:hover { border-color: #fff; }
 .btn--lg { font-size: 1rem; padding: .9rem 2rem; }
 
+.btn:disabled,
+.btn--loading {
+  opacity: .5;
+  pointer-events: none;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ─── Focus visible (accessibility) ───────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible {
+  outline: none;
+}
+
 /* ─── Lang pill ────────────────────────────────────────────── */
 .lang-pill {
   display: flex;
@@ -672,11 +693,24 @@ a   { color: inherit; text-decoration: none; }
 .form-group textarea { resize: vertical; min-height: 110px; }
 .form-submit { align-items: flex-start; }
 
-/* Submit loading state */
-.btn--loading {
-  opacity: .6;
-  pointer-events: none;
-  cursor: wait;
+/* Form validation error state */
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+  border-color: #C0392B;
+  box-shadow: 0 0 0 3px rgba(192,57,43,.15);
+}
+.form-group__error {
+  display: none;
+  font-size: .8125rem;
+  font-weight: 600;
+  color: #C0392B;
+  margin-top: .25rem;
+}
+.form-group input.error ~ .form-group__error,
+.form-group select.error ~ .form-group__error,
+.form-group textarea.error ~ .form-group__error {
+  display: block;
 }
 
 /* ─── FOOTER ───────────────────────────────────────────────── */

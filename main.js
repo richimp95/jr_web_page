@@ -98,10 +98,45 @@
     revealObserver.observe(el);
   });
 
-  // ── Form submit loading state ─────────────────────────────────
-  document.querySelector('.partner-form')?.addEventListener('submit', () => {
+  // ── Form validation ────────────────────────────────────────────
+  const MSGS = {
+    required: { es: 'Este campo es requerido', en: 'This field is required' },
+    email:    { es: 'Ingresa un email válido',  en: 'Enter a valid email' },
+  };
+
+  const form = document.querySelector('.partner-form');
+  form?.addEventListener('submit', e => {
+    let valid = true;
+
+    form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+    form.querySelectorAll('.form-group__error').forEach(el => { el.textContent = ''; });
+
+    const setError = (field, type) => {
+      field.classList.add('error');
+      const span = document.getElementById('err-' + field.id);
+      if (span) span.textContent = MSGS[type][lang];
+      valid = false;
+    };
+
+    ['nombre', 'empresa', 'pais', 'email', 'mensaje'].forEach(id => {
+      const field = form.querySelector('#' + id);
+      if (field && !field.value.trim()) setError(field, 'required');
+    });
+
+    const emailField = form.querySelector('#email');
+    if (emailField && emailField.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+      setError(emailField, 'email');
+    }
+
+    if (!valid) {
+      e.preventDefault();
+      form.querySelector('.error')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
     const btn = document.getElementById('formSubmit');
     if (btn) {
+      btn.disabled = true;
       btn.classList.add('btn--loading');
       btn.textContent = lang === 'en' ? 'Sending…' : 'Enviando…';
     }

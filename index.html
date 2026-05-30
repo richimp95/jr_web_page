@@ -223,10 +223,12 @@
               <div class="form-group">
                 <label for="nombre" data-es="Nombre" data-en="Name">Nombre</label>
                 <input type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="Tu nombre completo" data-ph-es="Tu nombre completo" data-ph-en="Your full name" />
+                <span class="form-group__error" id="err-nombre"></span>
               </div>
               <div class="form-group">
                 <label for="empresa" data-es="Empresa" data-en="Company">Empresa</label>
                 <input type="text" id="empresa" name="empresa" required autocomplete="organization" placeholder="Nombre de tu empresa" data-ph-es="Nombre de tu empresa" data-ph-en="Your company name" />
+                <span class="form-group__error" id="err-empresa"></span>
               </div>
             </div>
             <div class="form-row">
@@ -244,15 +246,18 @@
                   <option value="MX">México</option>
                   <option value="otro">Otro / Other</option>
                 </select>
+                <span class="form-group__error" id="err-pais"></span>
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required autocomplete="email" placeholder="tu@empresa.com" />
+                <span class="form-group__error" id="err-email"></span>
               </div>
             </div>
             <div class="form-group form-group--full">
               <label for="mensaje" data-es="Mensaje" data-en="Message">Mensaje</label>
               <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre tu negocio, volúmenes estimados, canales de venta…" data-ph-es="Cuéntanos sobre tu negocio, volúmenes estimados, canales de venta…" data-ph-en="Tell us about your business, estimated volumes, sales channels…"></textarea>
+              <span class="form-group__error" id="err-mensaje"></span>
             </div>
             <div class="form-group form-group--full form-submit">
               <button type="submit" class="btn btn--copper btn--lg" id="formSubmit" data-es="Enviar solicitud" data-en="Send inquiry">Enviar solicitud</button>
