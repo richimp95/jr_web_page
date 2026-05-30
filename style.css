@@ -782,7 +782,24 @@ a   { color: inherit; text-decoration: none; }
   .hero { padding: 4rem 0 3rem; }
   .products-lineup { padding: 3.5rem 0 2rem; }
   .products-lineup__cards { grid-template-columns: 1fr; }
-  .features__block { padding: 3.5rem 0; }
+
+  .features__block { padding: 3rem 0; }
+
+  /* Más respiro horizontal en las secciones de features */
+  .features__block.container,
+  .features__block .container {
+    padding-inline: 2rem;
+  }
+
+  /* Imagen centrada y con margen para que no toque los bordes */
+  .features__visual {
+    display: flex;
+    justify-content: center;
+  }
+  .features__visual img {
+    max-width: 78%;
+  }
+
   .why { padding: 4rem 0; }
   .form-section { padding: 4rem 0; }
 }
